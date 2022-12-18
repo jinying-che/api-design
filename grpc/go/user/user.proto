@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "github.com/jinying-che/api-design/grpc/go/user/user";
+
+package user;
+
+// Define the data structure for a user
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+// Define the gRPC service for the API
+service UserService {
+  // Create a new user
+  rpc CreateUser(User) returns (User) {}
+
+  // Retrieve an existing user
+  rpc GetUser(User) returns (User) {}
+
+  // Update an existing user
+  rpc UpdateUser(User) returns (User) {}
+
+  // Delete an existing user
+  rpc DeleteUser(User) returns (User) {}
+}
